@@ -363,6 +363,9 @@
     // apply authentications
     this.applyAuthToRequest(request, authNames);
 
+    if(typeof queryParams === undefined || queryParams == false) queryParams = {};
+    queryParams['cache-prevent'] = Date.now();
+	
     // set query parameters
     request.query(this.normalizeParams(queryParams));
 
